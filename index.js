@@ -22,3 +22,20 @@ async function fetchUserData(id) {
       throw new Error(`Failed to fetch user data: ${error.message}`);
     }
   }
+
+async function fetchUserData(id) {
+    // Input validation
+    if (!Number.isInteger(id) || id < 1 || id > 10) {
+        throw new Error('Invalid id. Mustbe an integer between 1 and 10.');
+    }
+
+
+
+
+
+
+
+
+    
+
+}
