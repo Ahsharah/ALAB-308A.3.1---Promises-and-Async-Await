@@ -29,13 +29,15 @@ async function fetchUserData(id) {
         throw new Error('Invalid id. Mustbe an integer between 1 and 10.');
     }
 
-
-
-
-
-
-
-
-    
-
-}
+    try {
+        // Query the central database
+        const dbName = await central(id);
+        
+        // Query the specific database and the vault concurrently 
+        const [basicInfo, personalInfo] = await Promise.all([
+            dbs[dbName](id).catch(error => {
+                throw new Error(`${dbName} database failed: ${error.message}`);
+            }),
+            vault(id)
+          ]);
+        }
