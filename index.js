@@ -47,5 +47,11 @@ async function fetchUserData(id) {
             id,
             name: personalInfo.name,
             username: basicInfo.username,
-            
-        }
+            email: personalInfo.email,
+            address: personalInfo.address,
+            phone: personalInfo.phone,
+            website: personalInfo.website,
+            company: personalInfo.company,
+        };
+
+        
