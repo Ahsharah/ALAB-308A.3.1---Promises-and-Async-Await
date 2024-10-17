@@ -71,3 +71,22 @@ async function fetchUserData(id) {
     }catch (error) {
         throw new Error('Failed to fetch user data: ${error.message}');    
         }
+
+        // Test Function
+        async function testFetchedUserData() {
+            try {
+                // Test with valid ID
+                const user1 = await testFetchedUserData(1);
+                console.log('Valid user:', user1);
+                
+                // Test with invalid ID (out of range)
+                await testFetchedUserData(11);   
+            } catch (error) {
+                console.error('Error:', error.message)
+
+            }
+
+
+
+
+        }
