@@ -41,3 +41,11 @@ async function fetchUserData(id) {
             vault(id)
           ]);
         }
+
+        // Combine the data
+        const userData = {
+            id,
+            name: personalInfo.name,
+            username: basicInfo.username,
+            
+        }
