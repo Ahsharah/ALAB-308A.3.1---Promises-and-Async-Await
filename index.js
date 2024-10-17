@@ -54,4 +54,20 @@ async function fetchUserData(id) {
             company: personalInfo.company,
         };
 
-        
+        // Ensure all required fields are present
+        const requiredFields = ['id', 'name', 'username', 'email', 'address', 'phone', 'website', 'company'];
+        for (const field of requiredFields) {
+            if (useDate[field]=== undefined) {
+                throw new Error('Missing required field: ${field}');
+            }
+        }
+
+        // Ensure nested fields are present
+        if (!userDataaddress.geo || !userData.address.geo.kat || !userData.address.geo.lng) {
+            throw new Error('Missing required nested fields in address.geo');
+        }
+
+        return userData;
+    }catch (error) {
+        throw new Error('Failed to fetch user data: ${error.message}');    
+        }
