@@ -8,4 +8,18 @@ async function fetchUserData(id) {
         dbs[dbName](id),
         valut(id)
 
+]};
+
+// Step 3: Combine the data
+const userData = {
+    id,
+    ...basicInfo,
+    ...personalInfo
+};
+
+    return userData;
+} catch (error) {
+
+    // Step 4: Error handling
+    throw new Error('Failed tot fetch use data: ${error.message}');
 }
