@@ -68,7 +68,7 @@ async function fetchUserData(id) {
         }
 
         return userData;
-    }catch (error) {
+    }   catch (error) {
         throw new Error('Failed to fetch user data: ${error.message}');    
         }
 
@@ -86,7 +86,12 @@ async function fetchUserData(id) {
 
             }
 
-
-
-
+            // Test with invalid data type
+            try {
+                await fetchUserData('abc');
+            } catch (error) {
+                console.error ('Error with invalid data type:',erorr.message);
+            }
         }
+
+        testFetchedUserData();
